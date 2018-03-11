@@ -87,9 +87,7 @@ Navigation directives govern to which location a user can navigate to or submit 
     "report-to": "report-uri.com",
     "report-uri": "report-uri.com",
     "require-sri-for": ["script", "style"],
-    "upgrade-insecure-requests": {
-        "type": "boolean"
-    },
+    "upgrade-insecure-requests": true
 }
 ```
 
