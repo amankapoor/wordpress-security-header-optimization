@@ -28,21 +28,19 @@ $this->form_start(__('Security Optimization', 'optimization'), 'security');
 
             <div class="suboption" data-ns="csp"<?php $visible('csp'); ?>>
 
-            <h5 class="h">&nbsp;Content Security Policy Directives</h5>
+            <h5 class="h">&nbsp;Content Security Policy Directives (<a href="https://github.com/o10n-x/wordpress-security-header-optimization/tree/master/docs#example-content-security-policy-configuration" target="_blank">documentation</a>)</h5>
             <div id="csp-directives"><div class="loading-json-editor"><?php print __('Loading JSON editor...', 'optimization'); ?></div></div>
-            <input type="hidden" class="json" name="o10n[csp.directives]" data-json-editor-compact="1" data-json-editor-height="auto" data-json-editor-init="1" value="<?php print esc_attr($json('csp.directives')); ?>" />
+            <input type="hidden" class="json" name="o10n[csp.directives]" data-json-editor-height="auto" data-json-editor-init="1" value="<?php print esc_attr($json('csp.directives')); ?>" />
             </div>
         </td>
     </tr>
     <tr valign="top" data-ns="csp"<?php $visible('csp'); ?>>
         <th scope="row">&nbsp;</th>
         <td style="padding-top:0px;">
-            
-            
+
                 <label><input type="checkbox" name="o10n[csp.legacy]" data-json-ns="1" value="1"<?php $checked('csp.legacy'); ?> /> Add legacy headers</label>
                 <p class="description">Check this option if you want to include the legacy headers <code>X-WebKit-CSP</code> and <code>X-Content-Security-Policy</code> based on user-agent sniffing.</p>
-            
-
+                
             <div class="suboption" data-ns="csp.legacy"<?php $visible('csp.legacy'); ?>>
                 <label><input type="checkbox" name="o10n[csp.precsp10]" value="1"<?php $checked('csp.precsp10'); ?> /> Enable pre CSP 1.0 directives</label>
                 <p class="description">Convert directives to pre CSP 1.0 directives based on user-agent sniffing.</p>
