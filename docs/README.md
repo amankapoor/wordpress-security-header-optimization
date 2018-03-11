@@ -16,7 +16,7 @@ Additional features can be requested on the [Github forum](https://github.com/o1
 
 Getting started? Read [this article](https://developers.google.com/web/fundamentals/security/csp/) about Content Security Policy by Google and [this extensive guide](https://www.smashingmagazine.com/2016/09/content-security-policy-your-future-best-friend/) by Smashing Magazine. Test your security header configuration at [securityheaders.io](https://securityheaders.io/).
 
-The CSP configuration of the plugin is based on a JSON object containing the CSP directives.
+The CSP configuration of the plugin is based on a JSON object containing CSP directives.
 
 Mozilla [reports](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) the availability of the following directives:
 
