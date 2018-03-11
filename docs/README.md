@@ -84,8 +84,8 @@ Navigation directives govern to which location a user can navigate to or submit 
         "allow-scripts",
         "allow-top-navigation"
     ],
-    "report-to": "report-uri.com",
-    "report-uri": "report-uri.com",
+    "report-to": "https://report-uri.com",
+    "report-uri": "https://report-uri.com",
     "require-sri-for": ["script", "style"],
     "upgrade-insecure-requests": true
 }
