@@ -33,7 +33,8 @@ class AdminViewSecurity extends AdminViewBase
         return parent::construct($Core, array(
             'json',
             'file',
-            'AdminClient'
+            'AdminClient',
+            'AdminOptions'
         ));
     }
     
@@ -104,6 +105,7 @@ class AdminViewSecurity extends AdminViewBase
             case "headers":
             case "access":
             case "reporting":
+            case "settings":
             case "intro":
                 $view_key = 'security-' . $tab;
             break;
@@ -286,6 +288,45 @@ class AdminViewSecurity extends AdminViewBase
                     $forminput->type_verify(array(
                         'headers.report-to.endpoints' => 'json-array'
                     ));
+                }
+            break;
+
+            case "settings":
+
+                // profile
+                $profile = $forminput->get('security', 'json-array');
+                if ($profile) {
+
+                    // @todo improve
+                    $iterator = new \RecursiveIteratorIterator(
+                        new \RecursiveArrayIterator($profile),
+                        \RecursiveIteratorIterator::SELF_FIRST
+                    );
+                    $path = [];
+                    $flatArray = [];
+
+                    $arrayVal = false;
+                    foreach ($iterator as $key => $value) {
+                        $path[$iterator->getDepth()] = $key;
+
+                        $dotpath = implode('.', array_slice($path, 0, $iterator->getDepth() + 1));
+                        if ($arrayVal && strpos($dotpath, $arrayVal) === 0) {
+                            continue 1;
+                        }
+
+                        if (!is_array($value) || empty($value) || array_keys($value)[0] === 0) {
+                            if (is_array($value) && (empty($value) || array_keys($value)[0] === 0)) {
+                                $arrayVal = $dotpath;
+                            } else {
+                                $arrayVal = false;
+                            }
+
+                            $flatArray[$dotpath] = $value;
+                        }
+                    }
+
+                    // replace all options
+                    $this->AdminOptions->save($flatArray, true);
                 }
             break;
         }

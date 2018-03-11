@@ -37,6 +37,9 @@ class AdminSecurity extends ModuleAdminController implements Module_Admin_Contro
         'reporting' => array(
             'title' => 'Reporting API',
             'title_attr' => 'Reporting API Endpoint Configuration'
+        ),
+        'settings' => array(
+            'title' => 'Settings'
         )
     );
     /**
