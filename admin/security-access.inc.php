@@ -31,13 +31,15 @@ $this->form_start(__('Security Optimization', 'optimization'), 'security');
             <label><input type="checkbox" name="o10n[headers.access-control-allow-origin.enabled]" data-json-ns="1" value="1"<?php $checked('headers.access-control-allow-origin.enabled'); ?>> Enable</label>
             <p class="description" style="margin-bottom:1em;">Enable the <code>Access-Control-Allow-Origin</code> header to enable Cross-Origin Resource Sharing.</p>
 
-            <label><input type="checkbox" name="o10n[headers.access-control-allow-origin.all]" data-json-ns="1" value="1"<?php $checked('headers.access-control-allow-origin.all'); ?>> All origins (wildcard *)</label>
+            <div data-ns="headers.access-control-allow-origin"<?php $visible('headers.access-control-allow-origin'); ?>>
+                <label><input type="checkbox" name="o10n[headers.access-control-allow-origin.all]" data-json-ns="1" value="1"<?php $checked('headers.access-control-allow-origin.all'); ?>> All origins (wildcard *)</label>
 
-            <div class="suboption" data-ns-hide="headers.access-control-allow-origin.all"<?php $invisible('headers.access-control-allow-origin.all'); ?>>
-                <h5 class="h">&nbsp;Origins</h5>
-                <div id="headers-access-control-allow-origin-origins"><div class="loading-json-editor"><?php print __('Loading JSON editor...', 'optimization'); ?></div></div>
-                <input type="hidden" class="json" name="o10n[headers.access-control-allow-origin.origins]" data-json-type="json-array" data-json-editor-height="auto" data-json-editor-init="1" value="<?php print esc_attr($json('headers.access-control-allow-origin.origins')); ?>" />
-                <p class="description">Enter a JSON array with origin URI's, e.g. <code>["https://origin-a.com", "https://origin-b.com"]</code>.</p>
+                <div class="suboption" data-ns="headers.access-control-allow-origin" data-ns-hide="headers.access-control-allow-origin.all"<?php $invisible('headers.access-control-allow-origin.all'); ?>>
+                    <h5 class="h">&nbsp;Origins</h5>
+                    <div id="headers-access-control-allow-origin-origins"><div class="loading-json-editor"><?php print __('Loading JSON editor...', 'optimization'); ?></div></div>
+                    <input type="hidden" class="json" name="o10n[headers.access-control-allow-origin.origins]" data-json-type="json-array" data-json-editor-height="auto" data-json-editor-init="1" value="<?php print esc_attr($json('headers.access-control-allow-origin.origins')); ?>" />
+                    <p class="description">Enter a JSON array with origin URI's, e.g. <code>["https://origin-a.com", "https://origin-b.com"]</code>.</p>
+                </div>
             </div>
         </td>
     </tr>

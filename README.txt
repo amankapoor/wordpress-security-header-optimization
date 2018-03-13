@@ -5,7 +5,7 @@ Tags: csp, security, http headers, optimization, content security policy, xss, a
 Requires at least: 4.0
 Requires PHP: 5.4
 Tested up to: 4.9.4
-Stable tag: 0.0.17
+Stable tag: 0.0.22
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,22 @@ Documentation is available on [Github](https://github.com/o10n-x/wordpress-secur
 
 
 == Changelog ==
+
+= 0.0.22 =
+Core update (see changelog.txt)
+
+= 0.0.21 =
+* Bugfix: JSON profile editor does not delete options when removed from JSON.
+
+= 0.0.20 =
+* Bugfix: JSON profile editor doesn't save directives object correctly.
+* Bugfix: Allow-Origin origin editor visible when disabled.
+
+= 0.0.19 =
+* Bugfix: JSON profile editor overwrites settings.
+
+= 0.0.18 =
+* Bugfix: Incorrect `X-Frame-Options` admin form validation (@baddogg99)
 
 = 0.0.17 =
 Core update (see changelog.txt)

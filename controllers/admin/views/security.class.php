@@ -33,6 +33,7 @@ class AdminViewSecurity extends AdminViewBase
         return parent::construct($Core, array(
             'json',
             'file',
+            'options',
             'AdminClient',
             'AdminOptions'
         ));
@@ -185,17 +186,27 @@ class AdminViewSecurity extends AdminViewBase
                 // x-frame-options
                 if ($forminput->bool('headers.x-frame-options.enabled')) {
                     $forminput->type_verify(array(
-                        'headers.x-frame-options.mode' => 'string',
-                        'headers.x-frame-options.allowFrom' => 'string'
+                        'headers.x-frame-options.mode' => 'string'
                     ));
+                    
+                    if ($forminput->get('headers.x-frame-options.mode') === 'ALLOW-FROM') {
+                        $forminput->type_verify(array(
+                            'headers.x-frame-options.allowFrom' => 'string'
+                        ));
+                    }
                 }
 
                 // x-xss-protection
                 if ($forminput->bool('headers.x-xss-protection.enabled')) {
                     $forminput->type_verify(array(
-                        'headers.x-xss-protection.mode' => 'string',
-                        'headers.x-xss-protection.reportUri' => 'string'
+                        'headers.x-xss-protection.mode' => 'string'
                     ));
+                    
+                    if ($forminput->get('headers.x-xss-protection.mode') === 'report') {
+                        $forminput->type_verify(array(
+                            'headers.x-xss-protection.reportUri' => 'string'
+                        ));
+                    }
                 }
 
                 // referrer-policy
@@ -297,6 +308,11 @@ class AdminViewSecurity extends AdminViewBase
                 $profile = $forminput->get('security', 'json-array');
                 if ($profile) {
 
+                    // json object values
+                    $json_object_paths = array(
+                        'csp.directives'
+                    );
+
                     // @todo improve
                     $iterator = new \RecursiveIteratorIterator(
                         new \RecursiveArrayIterator($profile),
@@ -314,8 +330,8 @@ class AdminViewSecurity extends AdminViewBase
                             continue 1;
                         }
 
-                        if (!is_array($value) || empty($value) || array_keys($value)[0] === 0) {
-                            if (is_array($value) && (empty($value) || array_keys($value)[0] === 0)) {
+                        if (!is_array($value) || empty($value) || array_keys($value)[0] === 0 || in_array($dotpath, $json_object_paths)) {
+                            if (in_array($dotpath, $json_object_paths) || (is_array($value) && (empty($value) || array_keys($value)[0] === 0))) {
                                 $arrayVal = $dotpath;
                             } else {
                                 $arrayVal = false;
@@ -325,8 +341,15 @@ class AdminViewSecurity extends AdminViewBase
                         }
                     }
 
+                    // delete existing options
+                    // @temp require core 0.0.24 but do not force
+                    if (version_compare(O10N_CORE_VERSION, '0.0.24', '>=')) {
+                        $this->options->delete('csp.*');
+                        $this->options->delete('headers.*');
+                    }
+
                     // replace all options
-                    $this->AdminOptions->save($flatArray, true);
+                    $this->AdminOptions->save($flatArray);
                 }
             break;
         }
