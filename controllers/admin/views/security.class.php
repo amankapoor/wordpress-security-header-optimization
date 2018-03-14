@@ -342,11 +342,8 @@ class AdminViewSecurity extends AdminViewBase
                     }
 
                     // delete existing options
-                    // @temp require core 0.0.24 but do not force
-                    if (version_compare(O10N_CORE_VERSION, '0.0.24', '>=')) {
-                        $this->options->delete('csp.*');
-                        $this->options->delete('headers.*');
-                    }
+                    $this->options->delete('csp.*');
+                    $this->options->delete('headers.*');
 
                     // replace all options
                     $this->AdminOptions->save($flatArray);
