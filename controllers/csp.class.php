@@ -61,7 +61,7 @@ class Csp extends Controller implements Controller_Interface
      */
     final public function add_meta()
     {
-        if (!$this->policy) {
+        if (!$this->policy || !$this->env->is_optimization()) {
             return;
         }
         print '<meta http-equiv="Content-Security-Policy'.(($this->options->bool('csp.reportOnly')) ? '-Report-Only' : '').'" content="'.esc_attr($this->policy).'">';
@@ -72,6 +72,9 @@ class Csp extends Controller implements Controller_Interface
      */
     final public function apply_policy()
     {
+        if (!$this->env->is_optimization()) {
+            return;
+        }
 
         // policy directives
         $directives = apply_filters('o10n_csp_directives', $this->options->get('csp.directives'));

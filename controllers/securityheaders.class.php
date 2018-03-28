@@ -51,7 +51,7 @@ class Securityheaders extends Controller implements Controller_Interface
      */
     final public function send_headers()
     {
-        if (headers_sent()) {
+        if (headers_sent() || !$this->env->is_optimization()) {
             return;
         }
 
