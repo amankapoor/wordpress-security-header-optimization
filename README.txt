@@ -42,12 +42,6 @@ Documentation is available on [Github](https://github.com/o10n-x/wordpress-secur
 = 0.0.31 =
 * Core update (see changelog.txt)
 
-= 0.0.27 =
-* Added: JSON profile editor for all optimization modules.
-
-= 0.0.26 =
-Core update (see changelog.txt)
-
 = 0.0.21 =
 * Bugfix: JSON profile editor does not delete options when removed from JSON.
 
