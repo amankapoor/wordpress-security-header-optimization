@@ -1,6 +1,6 @@
-# Security Header Optimization Documentation
+# Documentation
  
-This documentation belongs to the WordPress plugin [Security Header Optimization](https://wordpress.org/plugins/security-header-optimization/).
+Documentation for the WordPress plugin Security Header Optimization.
 
 **The plugin is in beta. Please submit your feedback on the [Github forum](https://github.com/o10n-x/wordpress-security-header-optimization/issues).**
 
