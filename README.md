@@ -4,6 +4,9 @@
 
 Advanced security header optimization toolkit. Content-Security-Policy, Strict Transport Security (HSTS), Public-Key-Pins (HPKP), X-XSS-Protection and CORS.
 
+* [Documentation](https://github.com/o10n-x/wordpress-security-optimization/tree/master/docs)
+* [Description](https://github.com/o10n-x/wordpress-security-optimization#description)
+
 **This plugin is removed from WordPress.org. Read the story [here](https://github.com/o10n-x/wordpress-css-optimization/issues/4).**
 
 ## Installation
