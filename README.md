@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/o10n-x/wordpress-security-header-optimization.svg?branch=master)](https://travis-ci.org/o10n-x/wordpress-security-header-optimization)
+[![Build Status](https://travis-ci.org/o10n-x/wordpress-security-header-optimization.svg?branch=master)](https://travis-ci.org/o10n-x/wordpress-security-header-optimization) ![Version](https://img.shields.io/github/release/o10n-x/wordpress-security-header-optimization.svg)
 
 # WordPress Security Header Optimization
 
