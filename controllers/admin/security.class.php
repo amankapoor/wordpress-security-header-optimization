@@ -39,7 +39,7 @@ class AdminSecurity extends ModuleAdminController implements Module_Admin_Contro
             'title_attr' => 'Reporting API Endpoint Configuration'
         ),
         'settings' => array(
-            'title' => 'Settings'
+            'title' => 'JSON'
         )
     );
     /**
