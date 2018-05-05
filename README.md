@@ -9,8 +9,6 @@ Advanced security header optimization toolkit. Content-Security-Policy, Strict T
 
 **This plugin is removed from WordPress.org. Read the story [here](https://github.com/o10n-x/wordpress-css-optimization/issues/4).**
 
-**This plugin is a beta release.**
-
 ## Installation
 
 ![Github Updater](https://github.com/afragen/github-updater/raw/develop/assets/GitHub_Updater_logo_small.png)
@@ -31,7 +29,7 @@ The WPO optimization plugins are designed to work together with single plugin pe
 
 The WPO optimization plugins are based on JSON schema based configuration that enables full control of the optimization using JSON. This provides several great advantages for website performance optimization.
 
-Read more about [JSON schemas](https://github.com/o10n-x/wordpress-o10n-core/tree/master/schemas)
+Read more about [JSON schemas](https://github.com/o10n-x/wordpress-o10n-core/tree/master/schemas).
 
 ## Google PageSpeed vs Google Lighthouse Scores
 
