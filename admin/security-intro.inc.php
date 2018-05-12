@@ -46,7 +46,7 @@ $module_version = $view->module->version();
 			
 			<p class="about-text" style="min-height:inherit;">This plugin is a toolkit for advanced HTTP Security Header optimization for WordPress.</p>
 
-			<!--p class="about-text info_white" style="min-height:inherit;border-color:#0073aa;background:#f1faff;"><strong><span class="dashicons dashicons-welcome-comments" style="line-height: 32px;font-size: 34px;width: inherit;color:#0073aa;"></span></strong> The optimization plugins have been removed from WordPress.org. Read the story <a href="https://github.com/o10n-x/wordpress-css-optimization/issues/4" target="_blank">here</a>.</p-->
+			
 
 			<p class="about-text" style="min-height:inherit;">Getting started? Read <a href="https://developers.google.com/web/fundamentals/security/csp/" target="_blank">this article</a> about Content Security Policy by Google and <a href="https://www.smashingmagazine.com/2016/09/content-security-policy-your-future-best-friend/" target="_blank">this extensive guide</a> by <a href="https://www.smashingmagazine.com/" target="_blank" style="color:#d33a2c;font-weight:bold;">Smashing Magazine</a>. Test your security header configuration at <a href="https://securityheaders.io/?q=<?php print urlencode(home_url()); ?>&followRedirects=on" target="_blank" rel="noopener">securityheaders.io</a>.</p>
 
