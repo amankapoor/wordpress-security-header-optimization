@@ -48,6 +48,9 @@ class Csp extends Controller implements Controller_Interface
             // add to HTTP headers hook
             add_action('send_headers', array($this, 'apply_policy'), PHP_INT_MAX);
 
+            // add headers to page cache
+            add_action('o10n_page_cache_headers', array($this, 'apply_policy'), PHP_INT_MAX);
+
             if ($this->options->bool('csp.meta')) {
 
                 // add CSP meta
