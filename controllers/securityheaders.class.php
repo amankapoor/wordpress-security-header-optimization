@@ -45,7 +45,7 @@ class Securityheaders extends Controller implements Controller_Interface
         add_action('send_headers', array($this, 'send_headers'), PHP_INT_MAX);
 
         // add headers to page cache
-        add_action('o10n_page_cache_headers', array($this, 'send_headers'), PHP_INT_MAX);
+        add_filter('o10n_page_cache_headers', array($this, 'send_headers'), 10);
     }
 
 
