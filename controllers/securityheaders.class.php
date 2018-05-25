@@ -17,7 +17,7 @@ class Securityheaders extends Controller implements Controller_Interface
 
     // set headers
     private $headers = array();
-    private $unset_headers = array(); // removed headers
+    private $removed_headers = array(); // removed headers
     
     /**
      * Load controller
@@ -43,9 +43,6 @@ class Securityheaders extends Controller implements Controller_Interface
 
         // add to last position in HTTP headers hook
         add_action('send_headers', array($this, 'send_headers'), PHP_INT_MAX);
-
-        // add headers to page cache
-        add_filter('o10n_page_cache_headers', array($this, 'send_headers'), 10);
     }
 
 
@@ -321,5 +318,15 @@ class Securityheaders extends Controller implements Controller_Interface
         } else {
             header(sprintf('%s: ', $name), true);
         }
+
+        $this->removed_headers[] = $name;
+    }
+
+    /**
+     * Return removed headers
+     */
+    final public function removed_headers()
+    {
+        return $this->removed_headers;
     }
 }

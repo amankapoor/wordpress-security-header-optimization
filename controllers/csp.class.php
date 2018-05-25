@@ -48,9 +48,6 @@ class Csp extends Controller implements Controller_Interface
             // add to HTTP headers hook
             add_action('send_headers', array($this, 'apply_policy'), PHP_INT_MAX);
 
-            // add headers to page cache
-            add_filter('o10n_page_cache_headers', array($this, 'apply_policy'), 10);
-
             if ($this->options->bool('csp.meta')) {
 
                 // add CSP meta
@@ -183,7 +180,7 @@ class Csp extends Controller implements Controller_Interface
         } elseif (stripos($user_agent, 'Firefox Mobile') !== false) {
 
             // get browser
-            $browser = get_browser(null, true);
+            $browser = get_browser($user_agent, true);
 
             if (
                 // Firefox OS
@@ -245,7 +242,7 @@ class Csp extends Controller implements Controller_Interface
         } else {
 
             // get browser
-            $browser = get_browser(null, true);
+            $browser = get_browser($user_agent, true);
 
             // IE
             if ($browser['browser'] === 'IE') {
