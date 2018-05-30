@@ -39,7 +39,7 @@ class Csp extends Controller implements Controller_Interface
     protected function setup()
     {
         // disabled
-        if (!$this->env->is_optimization()) {
+        if (!$this->env->enabled('security')) {
             return;
         }
 
@@ -61,7 +61,7 @@ class Csp extends Controller implements Controller_Interface
      */
     final public function add_meta()
     {
-        if (!$this->policy || !$this->env->is_optimization()) {
+        if (!$this->policy || !$this->env->enabled('security')) {
             return;
         }
         print '<meta http-equiv="Content-Security-Policy'.(($this->options->bool('csp.reportOnly')) ? '-Report-Only' : '').'" content="'.esc_attr($this->policy).'">';
@@ -72,7 +72,7 @@ class Csp extends Controller implements Controller_Interface
      */
     final public function apply_policy()
     {
-        if (!$this->env->is_optimization()) {
+        if (!$this->env->enabled('security')) {
             return;
         }
 
