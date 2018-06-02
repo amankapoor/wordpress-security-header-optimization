@@ -71,7 +71,7 @@ The plugin provides in a complete solution for Content Security Policy Managemen
 
 A big advantage is that the full configuration can be [managed by JSON](https://github.com/o10n-x/wordpress-security-header-optimization/tree/master/docs#content-security-policy). This makes the configuration portable to multiple websites.
 
-![CSP Editor](https://user-images.githubusercontent.com/8843669/39661507-cc1eac5e-5052-11e8-8fba-33c0cc959b07.png)
+![CSP Editor](https://github.com/o10n-x/wordpress-security-header-optimization/blob/master/docs/images/csp-editor.png)
 
 The plugin supports most security headers, including Strict Transport Security (HSTS), Public-Key-Pins (HPKP), X-XSS-Protection and all Cross-Origin Resource Sharing (CORS) related headers (Access-Control-Allow-Origin).
 
