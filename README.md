@@ -77,4 +77,6 @@ A big advantage is that the full configuration can be [managed by JSON](https://
 
 The plugin supports most security headers, including Strict Transport Security (HSTS), Public-Key-Pins (HPKP), X-XSS-Protection and all Cross-Origin Resource Sharing (CORS) related headers (Access-Control-Allow-Origin).
 
+![Security Headers Config](https://github.com/o10n-x/wordpress-security-header-optimization/blob/master/docs/images/headers-config.png)
+
 Additional features can be requested on the [Github forum](https://github.com/o10n-x/wordpress-security-header-optimization/issues).
