@@ -69,7 +69,9 @@ This plugin is a toolkit for HTTP Security Header optimization.
 
 The plugin provides in a complete solution for Content Security Policy Management with support for Reporting API and legacy policy conversion based on browser sniffing. 
 
-A big advantage is that the full configuration can be [managed by JSON](https://github.com/o10n-x/wordpress-security-header-optimization/tree/master/docs#content-security-policy). This makes the configuration portable to multiple websites.
+### JSON Schema based configuration
+
+A big advantage is that the full configuration can be [managed by JSON](https://github.com/o10n-x/wordpress-security-header-optimization/tree/master/docs#content-security-policy) verified by a [JSON schema](https://github.com/o10n-x/wordpress-o10n-core/tree/master/schemas). This makes the configuration easy to manage and portable to multiple websites.
 
 ![CSP Editor](https://github.com/o10n-x/wordpress-security-header-optimization/blob/master/docs/images/csp-editor.png)
 
