@@ -79,4 +79,6 @@ The plugin supports most security headers, including Strict Transport Security (
 
 ![Security Headers Config](https://github.com/o10n-x/wordpress-security-header-optimization/blob/master/docs/images/headers-config.png)
 
+All settings of the plugin can be controlled from a single JSON editor. As part of the WPO collection, the plugin settings can be controlled via a single optimization JSON configuration.
+
 Additional features can be requested on the [Github forum](https://github.com/o10n-x/wordpress-security-header-optimization/issues).
