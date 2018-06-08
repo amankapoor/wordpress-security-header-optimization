@@ -35,7 +35,8 @@ class AdminViewSecurity extends AdminViewBase
             'file',
             'options',
             'AdminClient',
-            'AdminOptions'
+            'AdminOptions',
+            'AdminSecurity'
         ));
     }
     
@@ -70,14 +71,7 @@ class AdminViewSecurity extends AdminViewBase
      */
     final public function help_tab()
     {
-        $data = array(
-            'name' => __('Security Header Optimization', 'o10n'),
-            'github' => 'https://github.com/o10n-x/wordpress-security-header-optimization',
-            'wordpress' => 'https://wordpress.org/support/plugin/security-header-optimization',
-            'docs' => 'https://github.com/o10n-x/wordpress-security-header-optimization/tree/master/docs'
-        );
-
-        return $data;
+        return $this->AdminSecurity->help_tab();
     }
 
     /**

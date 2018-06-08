@@ -118,6 +118,21 @@ class AdminSecurity extends ModuleAdminController implements Module_Admin_Contro
     }
 
     /**
+     * Return help tab data
+     */
+    final public function help_tab()
+    {
+        $data = array(
+            'name' => __('Security Header Optimization', 'o10n'),
+            'github' => 'https://github.com/o10n-x/wordpress-security-header-optimization',
+            'wordpress' => 'https://wordpress.org/support/plugin/security-header-optimization',
+            'docs' => 'https://github.com/o10n-x/wordpress-security-header-optimization/tree/master/docs'
+        );
+
+        return $data;
+    }
+
+    /**
      * Show row meta on the plugin screen.
      */
     final public function plugin_row_meta($links, $file)
@@ -131,10 +146,14 @@ class AdminSecurity extends ModuleAdminController implements Module_Admin_Contro
             if ($lgcode === 'en') {
                 $lgcode = '';
             }
+            
+            $plugin_links = $this->help_tab();
 
-            $row_meta = array(
-                /*'o10n_scores' => '<a href="' . esc_url('https://optimization.team/pro/') . '" target="_blank" title="' . esc_attr(__('View Google PageSpeed Scores Documentation', 'o10n')) . '" style="font-weight:bold;color:black;">' . __('Upgrade to <span class="g100" style="padding:0px 4px;">PRO</span>', 'o10n') . '</a>'*/
-            );
+            if ($plugin_links && isset($plugin_links['github'])) {
+                $row_meta = array(
+                    'o10n_version' => '<a href="'.trailingslashit($plugin_links['github']).'releases/" target="_blank" title="' . esc_attr(__('View Version History', 'o10n')) . '" style=""><span class="dashicons dashicons-clock"></span> ' . __('Version History', 'o10n') . '</a>'
+                );
+            }
 
             return array_merge($links, $row_meta);
         }
