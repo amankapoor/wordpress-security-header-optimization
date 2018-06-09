@@ -29,6 +29,26 @@ A recent update of all plugins contains a easy single click install button.
 ![image](https://user-images.githubusercontent.com/8843669/39661507-cc1eac5e-5052-11e8-8fba-33c0cc959b07.png)
 </details>
 
+## Description
+
+This plugin is a toolkit for HTTP Security Header optimization.
+
+The plugin provides in a complete solution for Content Security Policy Management with support for Reporting API and legacy policy conversion based on browser sniffing. 
+
+### JSON Schema based configuration
+
+A big advantage is that the full configuration can be [managed by JSON](https://github.com/o10n-x/wordpress-security-header-optimization/tree/master/docs#content-security-policy) verified by a [JSON schema](https://github.com/o10n-x/wordpress-o10n-core/tree/master/schemas). This makes the configuration easy to manage and portable to multiple websites.
+
+![CSP Editor](https://github.com/o10n-x/wordpress-security-header-optimization/blob/master/docs/images/csp-editor.png)
+
+The plugin supports most security headers, including Strict Transport Security (HSTS), Public-Key-Pins (HPKP), X-XSS-Protection and all Cross-Origin Resource Sharing (CORS) related headers (Access-Control-Allow-Origin).
+
+![Security Headers Config](https://github.com/o10n-x/wordpress-security-header-optimization/blob/master/docs/images/headers-config.png)
+
+All settings of the plugin can be controlled from a single JSON editor. As part of the WPO collection, the plugin settings can be controlled via a single optimization JSON configuration.
+
+Additional features can be requested on the [Github forum](https://github.com/o10n-x/wordpress-security-header-optimization/issues).
+
 ## WordPress WPO Collection
 
 This plugin is part of a Website Performance Optimization collection that include [CSS](https://github.com/o10n-x/wordpress-css-optimization), [Javascript](https://github.com/o10n-x/wordpress-javascript-optimization), [HTML](https://github.com/o10n-x/wordpress-html-optimization), [Web Font](https://github.com/o10n-x/wordpress-font-optimization), [Progressive Web App (Service Worker)](https://github.com/o10n-x/wordpress-pwa-optimization) and [HTTP/2](https://github.com/o10n-x/wordpress-http2-optimization) optimization. 
@@ -62,23 +82,3 @@ For SEO it is therefor simple: websites will need to meet the standards set by t
 A perfect Google Lighthouse Score includes validation of a website as a [Progressive Web App (PWA)](https://developers.google.com/web/progressive-web-apps/).
 
 Google offers another new website performance test that is much tougher than the Google PageSpeed score. It is based on a AI neural network and it can be accessed on https://testmysite.thinkwithgoogle.com
-
-## Description
-
-This plugin is a toolkit for HTTP Security Header optimization.
-
-The plugin provides in a complete solution for Content Security Policy Management with support for Reporting API and legacy policy conversion based on browser sniffing. 
-
-### JSON Schema based configuration
-
-A big advantage is that the full configuration can be [managed by JSON](https://github.com/o10n-x/wordpress-security-header-optimization/tree/master/docs#content-security-policy) verified by a [JSON schema](https://github.com/o10n-x/wordpress-o10n-core/tree/master/schemas). This makes the configuration easy to manage and portable to multiple websites.
-
-![CSP Editor](https://github.com/o10n-x/wordpress-security-header-optimization/blob/master/docs/images/csp-editor.png)
-
-The plugin supports most security headers, including Strict Transport Security (HSTS), Public-Key-Pins (HPKP), X-XSS-Protection and all Cross-Origin Resource Sharing (CORS) related headers (Access-Control-Allow-Origin).
-
-![Security Headers Config](https://github.com/o10n-x/wordpress-security-header-optimization/blob/master/docs/images/headers-config.png)
-
-All settings of the plugin can be controlled from a single JSON editor. As part of the WPO collection, the plugin settings can be controlled via a single optimization JSON configuration.
-
-Additional features can be requested on the [Github forum](https://github.com/o10n-x/wordpress-security-header-optimization/issues).
