@@ -47,6 +47,12 @@ The plugin supports most security headers, including Strict Transport Security (
 
 All settings of the plugin can be controlled from a single JSON editor. As part of the WPO collection, the plugin settings can be controlled via a single optimization JSON configuration.
 
+### Reporting API
+
+The plugin supports both `Report URI` and the latest [Reporting API](https://wicg.github.io/reporting/) ([W3.org](https://www.w3.org/TR/reporting-1/)) to enable advanced logging of security reports.
+
+![Reporting API](https://github.com/o10n-x/wordpress-security-header-optimization/blob/master/docs/images/reporting-api.png)
+
 Additional features can be requested on the [Github forum](https://github.com/o10n-x/wordpress-security-header-optimization/issues).
 
 ## WordPress WPO Collection
