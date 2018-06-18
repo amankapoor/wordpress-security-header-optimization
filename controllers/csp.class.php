@@ -18,6 +18,9 @@ class Csp extends Controller implements Controller_Interface
     // CSP policy string
     private $policy;
 
+    // directives set in runtime
+    private $directives = array();
+
     /**
      * Load controller
      *
@@ -79,6 +82,11 @@ class Csp extends Controller implements Controller_Interface
         // policy directives
         $directives = apply_filters('o10n_csp_directives', $this->options->get('csp.directives'));
 
+        // apply runtime set directives
+        if (!empty($this->directives)) {
+            $directives = array_merge($directives, $this->directives);
+        }
+        
         // CSP headers
         $headers = apply_filters('o10n_csp_headers', array(
             'Content-Security-Policy'
@@ -115,7 +123,9 @@ class Csp extends Controller implements Controller_Interface
         foreach ($directives as $directive => $value) {
             $directive = strtolower(preg_replace('/([a-z])([A-Z])/s', '$1-$2', $directive));
 
-            if (is_array($value)) {
+            if (is_string($value)) {
+                $value = $value;
+            } elseif (is_array($value)) {
                 $value = implode(' ', $value);
             } elseif ($value === true) {
                 $value = false;
@@ -127,6 +137,17 @@ class Csp extends Controller implements Controller_Interface
 
         // apply policy filter
         $csp = apply_filters('o10n_csp_policy', array_values($csp));
+
+        // report-uri
+        $repurt_uri = $this->options->get('csp.report-uri');
+        if ($repurt_uri) {
+            $csp['report-uri'] = 'report-uri ' . $repurt_uri;
+        }
+
+        // report-to
+        if ($this->options->get('csp.report-to.enabled')) {
+            $csp['report-to'] = 'report-to ' . $this->options->get('csp.report-to.group');
+        }
 
         // CSP policy string
         $this->policy = implode('; ', $csp);
@@ -315,5 +336,23 @@ class Csp extends Controller implements Controller_Interface
         }
 
         return $precsp10_directives;
+    }
+
+    /**
+     * Set directives by PHP method
+     */
+    final public function set_directives($directives, $value = false)
+    {
+        if (is_string($directives)) {
+
+            // json encode array value
+            if (is_array($value)) {
+                $value = json_encode($value);
+            }
+
+            $this->directives[$directives] = ($value) ? $value : '';
+        } else {
+            $this->directives = array_merge($this->directives, $directives);
+        }
     }
 }

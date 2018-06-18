@@ -135,11 +135,17 @@ class AdminViewSecurity extends AdminViewBase
                         'csp.legacy' => 'bool',
                         'csp.precsp10' => 'bool',
                         'csp.meta' => 'bool',
-                        'csp.reportUri' => 'string',
+                        'csp.report-uri' => 'string',
                         'csp.report-to.enabled' => 'bool',
-                        'csp.report-to.group' => 'string',
                         'csp.directives' => 'json'
                     ));
+
+                    // report-to
+                    if ($forminput->bool('csp.report-to.enabled')) {
+                        $forminput->type_verify(array(
+                            'csp.report-to.group' => 'string'
+                        ));
+                    }
                 }
             break;
             case "headers":
@@ -173,7 +179,7 @@ class AdminViewSecurity extends AdminViewBase
                         'headers.hpkp.pin-sha256-backup' => 'string',
                         'headers.hpkp.includeSubdomains' => 'bool',
                         'headers.hpkp.max-age' => 'int',
-                        'headers.hpkp.reportUri' => 'string'
+                        'headers.hpkp.report-uri' => 'string'
                     ));
                 }
 
@@ -198,7 +204,7 @@ class AdminViewSecurity extends AdminViewBase
                     
                     if ($forminput->get('headers.x-xss-protection.mode') === 'report') {
                         $forminput->type_verify(array(
-                            'headers.x-xss-protection.reportUri' => 'string'
+                            'headers.x-xss-protection.report-uri' => 'string'
                         ));
                     }
                 }
@@ -214,7 +220,7 @@ class AdminViewSecurity extends AdminViewBase
                 if ($forminput->bool('headers.expect-ct.enabled')) {
                     $forminput->type_verify(array(
                         'headers.expect-ct.enforce' => 'bool',
-                        'headers.expect-ct.reportUri' => 'string',
+                        'headers.expect-ct.report-uri' => 'string',
                         'headers.expect-ct.max-age' => 'int'
                     ));
                 }

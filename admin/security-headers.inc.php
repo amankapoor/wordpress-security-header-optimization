@@ -73,7 +73,7 @@ $this->form_start(__('Security Optimization', 'optimization'), 'security');
 
             <div class="suboption" data-ns="headers.hpkp"<?php $visible('headers.hpkp'); ?>>
                 <h5 class="h">&nbsp;Report URI</h5>
-                <input type="url" name="o10n[headers.hpkp.reportUri]" value="<?php $value('headers.hpkp.reportUri'); ?>" style="width:500px;max-width:100%;" />
+                <input type="url" name="o10n[headers.hpkp.report-uri]" value="<?php $value('headers.hpkp.report-uri'); ?>" style="width:500px;max-width:100%;" />
                 <p class="description">Enter an URL to send violation reports.</p>
             </div>
 
@@ -122,7 +122,7 @@ $this->form_start(__('Security Optimization', 'optimization'), 'security');
 
             <div class="suboption" data-ns="headers.x-xss-protection"<?php $visible('headers.x-xss-protection', ($get('headers.x-xss-protection.mode') === 'report')); ?> data-ns-condition="headers.x-xss-protection.mode==report">
                 <h5 class="h">&nbsp;Report URI</h5>
-                <input type="url" name="o10n[headers.x-xss-protection.reportUri]" value="<?php $value('headers.x-xss-protection.reportUri'); ?>" style="width:500px;max-width:100%;" />
+                <input type="url" name="o10n[headers.x-xss-protection.report-uri]" value="<?php $value('headers.x-xss-protection.report-uri'); ?>" style="width:500px;max-width:100%;" />
                 <p class="description">Enter an URL to send violation reports.</p>
             </div>
         </td>
@@ -169,7 +169,7 @@ $this->form_start(__('Security Optimization', 'optimization'), 'security');
 
             <div class="suboption" data-ns="headers.expect-ct"<?php $visible('headers.expect-ct'); ?>>
                 <h5 class="h">&nbsp;Report URI</h5>
-                <input type="url" name="o10n[headers.expect-ct.reportUri]" value="<?php $value('headers.expect-ct.reportUri'); ?>" style="width:500px;max-width:100%;" />
+                <input type="url" name="o10n[headers.expect-ct.report-uri]" value="<?php $value('headers.expect-ct.report-uri'); ?>" style="width:500px;max-width:100%;" />
                 <p class="description">Enter an URL to send violation reports.</p>
             </div>
 

@@ -52,18 +52,18 @@ $this->form_start(__('Security Optimization', 'optimization'), 'security');
             </div>
 
             <div class="suboption">
-                <label><input type="checkbox" name="o10n[csp.reportTo.enabled]" data-json-ns="1" value="1"<?php $checked('csp.reportTo.enabled'); ?> /> Enable new Reporting API <code>report-to</code> directive.</p>
+                <label><input type="checkbox" name="o10n[csp.report-to.enabled]" data-json-ns="1" value="1"<?php $checked('csp.report-to.enabled'); ?> /> Enable new Reporting API <code>report-to</code> directive.</p>
             </div>
 
-            <div class="suboption" data-ns="csp.reportTo"<?php $visible('csp.reportTo'); ?>>
+            <div class="suboption" data-ns="csp.report-to"<?php $visible('csp.report-to'); ?>>
                 <h5 class="h">&nbsp;Reporting API group name</h5>
-                <input type="text" name="o10n[csp.reportTo.group]" value="<?php $value('csp.reportTo.group'); ?>" style="width:200px;max-width:100%;" />
+                <input type="text" name="o10n[csp.report-to.group]" value="<?php $value('csp.report-to.group'); ?>" style="width:200px;max-width:100%;" />
                 <p class="description">Enter a Reporting API group name to send violation reports. You can create a <code>Report-To</code> header in the <a href="<?php print esc_url(add_query_arg(array('page' => 'o10n-security', 'tab' => 'reporting'), admin_url('admin.php'))); ?>">Reporting API</a> tab.</p>
             </div>
 
             <div class="suboption">
                 <h5 class="h">&nbsp;Report URI</h5>
-                <input type="url" name="o10n[csp.reportUri]" value="<?php $value('csp.reportUri'); ?>" style="width:500px;max-width:100%;" />
+                <input type="url" name="o10n[csp.report-uri]" value="<?php $value('csp.report-uri'); ?>" style="width:500px;max-width:100%;" />
                 <p class="description">Enter an URL to send violation reports using the old <code>report-uri</code> directive.</p>
             </div>
 

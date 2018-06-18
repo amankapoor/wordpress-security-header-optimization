@@ -60,6 +60,10 @@ class Securityheaders extends Controller implements Controller_Interface
 
             // endpoints
             $endpoints = $this->options->get('headers.report-to.endpoints');
+
+            // apply filters
+            $endpoints = apply_filters('o10n_report-to_endpoints', $endpoints);
+
             if ($endpoints) {
                 if ($endpoints && !empty($endpoints)) {
                     $endpoint_header = array();
@@ -122,9 +126,9 @@ class Securityheaders extends Controller implements Controller_Interface
             }
 
             // report uri
-            $reportUri = $this->options->get('headers.hpkp.reportUri', false);
-            if ($reportUri) {
-                $hpkp[] = sprintf('report-uri=%s', $reportUri);
+            $report_uri = $this->options->get('headers.hpkp.report-uri', false);
+            if ($report_uri) {
+                $hpkp[] = sprintf('report-uri=%s', $report_uri);
             }
 
             $this->header('Public-Key-Pins', join('; ', $hpkp));
@@ -155,11 +159,11 @@ class Securityheaders extends Controller implements Controller_Interface
             // mode
             $mode = (string)$this->options->get('headers.x-xss-protection.mode', '1');
             if (strtolower($mode) === 'report') {
-                $reportUri = $this->options->get('headers.x-xss-protection.reportUri');
-                if (!$reportUri) {
+                $report_uri = $this->options->get('headers.x-xss-protection.report-uri');
+                if (!$report_uri) {
                     $mode = '1';
                 } else {
-                    $mode = '1; report=' . $reportUri;
+                    $mode = '1; report=' . $report_uri;
                 }
             } else {
                 if ($mode === 'block') {
@@ -202,9 +206,9 @@ class Securityheaders extends Controller implements Controller_Interface
             }
 
             // report uri
-            $reportUri = $this->options->get('headers.expect-ct.reportUri', false);
-            if ($reportUri) {
-                $expectct[] = sprintf('report-uri="%s"', $reportUri);
+            $report_uri = $this->options->get('headers.expect-ct.report-uri', false);
+            if ($report_uri) {
+                $expectct[] = sprintf('report-uri="%s"', $report_uri);
             }
 
             $this->header('Expect-CT', join('; ', $expectct));
@@ -303,7 +307,7 @@ class Securityheaders extends Controller implements Controller_Interface
     /**
      * Output HTTP header
      */
-    final private function header($name, $value, $replace = true)
+    final public function header($name, $value, $replace = true)
     {
         header(sprintf('%s: %s', $name, $value), $replace);
     }
