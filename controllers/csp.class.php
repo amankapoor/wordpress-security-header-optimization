@@ -118,6 +118,33 @@ class Csp extends Controller implements Controller_Interface
             $legacy_config = false;
         }
 
+        // report-uri
+        $repurt_uri = $this->options->get('csp.report-uri');
+        if ($repurt_uri) {
+            $directives['report-uri'] = ((isset($directives['report-uri'])) ? $directives['report-uri'] . ' ' : '') . $repurt_uri;
+        }
+
+        // report-to
+        if (isset($directives['report-to']) && is_array($directives['report-to'])) {
+            if (empty($directives['report-to'])) {
+                unset($directives['report-to']);
+            } elseif (isset($directives['report-to'][0])) { // multiple
+                $report_to = array();
+                foreach ($directives['report-to'] as $endpoint) {
+                    $report_to[] = json_encode($endpoint);
+                }
+                $directives['report-to'] = implode(', ', $report_to);
+            } else {
+                $directives['report-to'] = json_encode($directives['report-to']);
+            }
+        }
+        if ($this->options->get('csp.report-to.enabled')) {
+            $group = $this->options->get('csp.report-to.group');
+            if ($group) {
+                $directives['report-to'] = ((isset($directives['report-to'])) ? $directives['report-to'] . ', ' : '') . $group;
+            }
+        }
+
         // construct CSP
         $csp = array();
         foreach ($directives as $directive => $value) {
@@ -137,17 +164,6 @@ class Csp extends Controller implements Controller_Interface
 
         // apply policy filter
         $csp = apply_filters('o10n_csp_policy', array_values($csp));
-
-        // report-uri
-        $repurt_uri = $this->options->get('csp.report-uri');
-        if ($repurt_uri) {
-            $csp['report-uri'] = 'report-uri ' . $repurt_uri;
-        }
-
-        // report-to
-        if ($this->options->get('csp.report-to.enabled')) {
-            $csp['report-to'] = 'report-to ' . $this->options->get('csp.report-to.group');
-        }
 
         // CSP policy string
         $this->policy = implode('; ', $csp);
