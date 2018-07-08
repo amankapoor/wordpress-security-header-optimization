@@ -40,6 +40,24 @@ class Securityheaders extends Controller implements Controller_Interface
      */
     protected function setup()
     {
+        // disabled
+        if (!$this->env->enabled('security')) {
+            return;
+        }
+
+        // setup on WordPress init hook
+        add_action('init', array($this, 'init_setup'), PHP_INT_MAX);
+    }
+
+    /**
+     * Setup controller on WordPress init
+     */
+    final public function init_setup()
+    {
+        // disabled
+        if (!$this->env->enabled('security')) {
+            return;
+        }
 
         // add to last position in HTTP headers hook
         add_action('send_headers', array($this, 'send_headers'), PHP_INT_MAX);

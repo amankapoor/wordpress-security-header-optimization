@@ -46,6 +46,20 @@ class Csp extends Controller implements Controller_Interface
             return;
         }
 
+        // setup on WordPress init hook
+        add_action('init', array($this, 'init_setup'), PHP_INT_MAX);
+    }
+
+    /**
+     * Setup controller on WordPress init
+     */
+    final public function init_setup()
+    {
+        // disabled
+        if (!$this->env->enabled('security')) {
+            return;
+        }
+
         if ($this->options->bool('csp')) {
 
             // add to HTTP headers hook
